@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(users)}">
+			<h1>User List</h1>
+			<table class="table table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>LName</th>
+					<th>Email</th>
+					<th>Edit</th>
+					<th>Delete</th>
+
+				</tr>
+				<tr th:each="r : ${users}">
+					<td th:text="${r.user_id}"></td>
+					<td th:text="${r.name}"></td>
+					<td th:text="${r.last_name}"></td>
+					<td th:text="${r.email}"></td>
+					<td><a th:href="@{/usr/edit(id=${r.user_id})}">Edit</a></td>
+					<td><a th:href="@{/usr/del(id=${r.user_id})}">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+		<p>
+			<a href="/usr/add">Add User</a>
+	</div>
+</body>
+</html>

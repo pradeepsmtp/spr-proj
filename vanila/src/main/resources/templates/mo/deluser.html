@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+function  cancelhandle(){
+	window.location = '/usr/ls';
+}
+
+</script>
+</head>
+<body>
+
+	<div class="container">
+
+		<h1>Add User</h1>
+		<div th:if="${not #lists.isEmpty(msg)}">
+			<ul th:each="r : ${msg}">
+			<li th:text="${r}"></li>
+			</ul>		
+		</div>
+
+		<form action="#" th:action="@{/usr/del}" th:object="${usr}"
+			method="post">
+			<p>
+				Id: <input type="text" th:field="*{user_id}"   />
+			</p>
+			<p>
+				Name: <input type="text" th:field="*{name}" disabled="disabled"/>
+			</p>
+
+			<p>
+				LastName: <input type="text" th:field="*{last_name}" disabled="disabled" />
+			</p>
+			<p>
+				Email: <input type="text" th:field="*{email}" disabled="disabled" />
+			</p>
+			<p>
+				<input type="submit" value="Delete" /> <input type="button"
+					value="Cancel"  onclick="cancelhandle()" />
+			</p>
+		</form>
+
+
+	</div>
+</body>
+</html>
