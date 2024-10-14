@@ -1,0 +1,7 @@
+ sudo apt install zip
+ sudo apt install unzip
+
+ curl -s "https://get.sdkman.io" | bash
+ source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+ sdk install java 21.ea.35-open 
